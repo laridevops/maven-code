@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     tools{
       maven 'M2_HOME'
     }
@@ -8,31 +8,31 @@ pipeline {
     stages {
         stage('cleaning') {
             steps {
-                sh 'mvn clean -no-color'
+                sh 'mvn clean'
             }
         }
         
         stage('compilation') {
             steps {
-                sh 'mvn compile -no-color'
+                sh 'mvn compile'
             }
         }
         
         stage('building') {
             steps {
-                sh 'mvn build -no-color'
+                sh 'mvn build'
             }
         }
 
         stage('installation') {
             steps {
-                sh 'mvn install -no-color'
+                sh 'mvn install'
             }
         }
 
         stage('packaging') {
             steps {
-                sh 'mvn package -no-color'
+                sh 'mvn package'
             }
         }
     }
