@@ -1,12 +1,35 @@
 pipeline {
     agent any
-     stages{
-      stage('Hello'){
-       steps {
-         echo "Hello World"
-       }
-    }
-    
-    }
 
+    stages {
+        stage('cleaning') {
+            steps {
+                sh 'mvn clean -no-color'
+            }
+        }
+        
+        stage('compilation') {
+            steps {
+                sh 'mvn compile -no-color'
+            }
+        }
+        
+        stage('building') {
+            steps {
+                sh 'mvn build -no-color'
+            }
+        }
+
+        stage('installation') {
+            steps {
+                sh 'mvn install -no-color'
+            }
+        }
+
+        stage('packaging') {
+            steps {
+                sh 'mvn package -no-color'
+            }
+        }
+    }
 }
