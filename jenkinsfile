@@ -17,12 +17,6 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-        
-        stage('building') {
-            steps {
-                sh 'mvn build'
-            }
-        }
 
         stage('installation') {
             steps {
